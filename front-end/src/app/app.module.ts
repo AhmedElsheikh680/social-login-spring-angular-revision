@@ -7,6 +7,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SocialComponent } from './components/social/social.component';
 import {RouterModule, Routes} from "@angular/router";
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from 'angularx-social-login';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,9 +31,29 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
-    BrowserModule
+    BrowserModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '814144140809-4bu5qddtitn6ln9qu2g7hru61lb17lah.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('925942674895534')
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
