@@ -1,13 +1,13 @@
-package com.spring.social;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class SocialMediaApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
-
-}
+//package com.spring.social;
+//
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//@SpringBootTest
+//class SocialMediaApplicationTests {
+//
+//    @Test
+//    void contextLoads() {
+//    }
+//
+//}
