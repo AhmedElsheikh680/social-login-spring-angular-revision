@@ -5,10 +5,12 @@ import com.spring.social.repo.UserRepo;
 import com.spring.social.security.UserPrinciple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private UserRepo userRepo;
 
@@ -17,7 +19,10 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public UserDetails loadByEmail(String email){
+
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepo.findByEmail(email);
         UserPrinciple userPrinciple = new UserPrinciple(user);
         return userPrinciple;
