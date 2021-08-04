@@ -47,6 +47,8 @@ public class SpringConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/auth/login")
                 .permitAll()
+                .antMatchers("/api/v1/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

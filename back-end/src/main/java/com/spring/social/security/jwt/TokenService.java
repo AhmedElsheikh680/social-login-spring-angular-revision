@@ -8,10 +8,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
-
 
 import java.util.Date;
+
+import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
 @Service
 public class TokenService {
